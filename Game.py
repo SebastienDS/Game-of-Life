@@ -15,6 +15,7 @@ class Game:
         self.updating = False
         self.last_update = 0
         self.mouse_pressed = False
+        self.add_cell_value = True
         self.time_for_update = 0.2
 
         self.screen = pygame.display.set_mode((width, height))
@@ -41,7 +42,9 @@ class Game:
             self.last_update = time.time()
         if self.mouse_pressed:
             pos = pygame.mouse.get_pos()
-            self.grid[pos[1] // self.cell_size][pos[0] // self.cell_size] = True
+            self.grid[pos[1] // self.cell_size][
+                pos[0] // self.cell_size
+            ] = self.add_cell_value
 
     def mainloop(self):
         run = True
@@ -64,6 +67,10 @@ class Game:
 
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     self.mouse_pressed = True
+                    if event.button == 1:
+                        self.add_cell_value = True
+                    else:
+                        self.add_cell_value = False
                 elif event.type == pygame.MOUSEBUTTONUP:
                     self.mouse_pressed = False
 

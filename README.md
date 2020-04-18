@@ -1,1 +1,1 @@
-# Jeu-de-la-vie
+# Game of Life

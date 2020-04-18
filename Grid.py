@@ -7,6 +7,12 @@ class Grid:
     def __str__(self):
         return "{}".format(self.grid)
 
+    def __getitem__(self, i):
+        return self.grid[i]
+
+    def __len__(self):
+        return len(self.grid)
+
     def update(self):
         for x, y in self.cell_changing_state():
             self.grid[y][x] = not self.grid[y][x]

@@ -21,9 +21,9 @@ class Game:
         self.clock = pygame.time.Clock()
 
     def draw(self):
-        for j in range(len(self.grid.grid)):
-            for i in range(len(self.grid.grid[0])):
-                state = self.grid.grid[j][i]
+        for j in range(len(self.grid)):
+            for i in range(len(self.grid[0])):
+                state = self.grid[j][i]
                 pygame.draw.rect(
                     self.screen,
                     COLOR[state],
@@ -41,7 +41,7 @@ class Game:
             self.last_update = time.time()
         if self.mouse_pressed:
             pos = pygame.mouse.get_pos()
-            self.grid.grid[pos[1] // self.cell_size][pos[0] // self.cell_size] = True
+            self.grid[pos[1] // self.cell_size][pos[0] // self.cell_size] = True
 
     def mainloop(self):
         run = True

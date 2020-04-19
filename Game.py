@@ -42,9 +42,12 @@ class Game:
             self.last_update = time.time()
         if self.mouse_pressed:
             pos = pygame.mouse.get_pos()
-            self.grid[pos[1] // self.cell_size][
-                pos[0] // self.cell_size
-            ] = self.add_cell_value
+            if pos[0] // self.cell_size < len(self.grid[0]) and pos[
+                1
+            ] // self.cell_size < len(self.grid):
+                self.grid[pos[1] // self.cell_size][
+                    pos[0] // self.cell_size
+                ] = self.add_cell_value
 
     def mainloop(self):
         run = True

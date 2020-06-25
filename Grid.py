@@ -19,8 +19,8 @@ class Grid:
 
     def cell_changing_state(self):
         changing_cell = set()
-        for j in range(len(self.grid[0])):
-            for i in range(len(self.grid)):
+        for j in range(len(self.grid)):
+            for i in range(len(self.grid[0])):
                 count = self.compute_neighbours(i, j)
                 if (not self.grid[j][i] and count == 3) or (
                     self.grid[j][i] and (count < 2 or count > 3)
